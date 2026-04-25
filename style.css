@@ -1,0 +1,88 @@
+/* --- RESET & VARIABEL --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+:root {
+  --orange-main: #FF8A00; /* Disesuaikan dengan oranye PDF */
+  --bg-page: #F8F9FA;
+  --text-dark: #1A1A1A;
+  --text-muted: #666666;
+  --black: #000000;
+}
+body { background-color: var(--bg-page); color: var(--text-dark); }
+
+/* --- NAVBAR GLOBAL --- */
+.global-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background: transparent;
+}
+.global-navbar .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+.global-navbar .menu { display: flex; gap: 30px; }
+.global-navbar .menu button {
+  background: none; border: none; font-size: 0.9rem; font-weight: 600; color: var(--text-dark);
+  cursor: pointer; transition: color 0.3s; text-transform: uppercase;
+}
+.global-navbar .menu button:hover, .global-navbar .menu button.active { color: var(--orange-main); }
+.btn-dark {
+  background: var(--black); color: white; padding: 12px 30px; border-radius: 30px;
+  border: none; font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+.btn-dark:hover { background: var(--orange-main); }
+
+/* --- CONTAINER & SPA --- */
+.main-container { padding: 40px 80px; max-width: 1400px; margin: 0 auto; }
+.page-section { display: none; width: 100%; animation: fadeIn 0.4s ease; }
+.page-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- HALAMAN HOME: HERO SECTION --- */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 40px;
+}
+.hero-text { flex: 1; max-width: 600px; }
+.hero-text h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
+.hero-text h1 span { border: 2px solid var(--text-dark); padding: 5px 15px; border-radius: 10px; display: inline-block; margin-top: 10px; }
+.hero-text .subtitle { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-size: 0.95rem; }
+
+.hero-actions { display: flex; align-items: center; gap: 20px; margin-top: 30px; }
+.btn-primary { background: var(--orange-main); color: white; padding: 15px 35px; border-radius: 30px; border: none; font-weight: 700; cursor: pointer; }
+.social-icons { display: flex; gap: 15px; }
+.icon { width: 45px; height: 45px; background: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; }
+
+/* Gambar Hero */
+.hero-image-wrapper { flex: 1; position: relative; display: flex; justify-content: flex-end; }
+.image-shape-bg { position: absolute; width: 400px; height: 500px; background: #E0E0E0; border-radius: 30px 100px 30px 30px; z-index: -1; top: 20px; right: 20px; }
+.image-placeholder { width: 400px; height: 500px; background: #D1D5DB; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-weight: bold; }
+
+/* --- HALAMAN HOME: STATS SECTION --- */
+.stats-layout { display: flex; gap: 30px; margin-top: 80px; align-items: center; }
+.stat-box { background: white; padding: 30px; border-radius: 20px; text-align: center; min-width: 180px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+.stat-box h2 { font-size: 2.5rem; color: var(--orange-main); margin-bottom: 5px; }
+.stat-box p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; }
+.stat-text { flex: 1; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; padding-left: 20px; }
+
+/* --- UMUM: HALAMAN LAIN & RESUME --- */
+.section-title { font-size: 3rem; text-align: center; margin-bottom: 40px; }
+.nav-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
+.tab-btn { background: #FFD8A8; color: var(--orange-main); padding: 12px 30px; border-radius: 30px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; }
+.tab-btn.active, .tab-btn:hover { background: var(--orange-main); color: white; }
+
+.main-content { position: relative; max-width: 900px; margin: 0 auto; }
+.tab-panel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; visibility: hidden; transform: translateY(20px); transition: 0.4s ease; }
+.tab-panel.active { position: relative; opacity: 1; visibility: visible; transform: translateY(0); }
+
+.card { background: white; padding: 30px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+.badge { background: #FFF3E0; color: var(--orange-main); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
+
+/* --- FOOTER --- */
+.global-footer { background: var(--black); color: white; padding: 60px 80px; display: flex; justify-content: space-between; gap: 50px; margin-top: 100px; }
+.footer-col { flex: 1; }
+.footer-col h3 { margin-bottom: 20px; color: white; font-size: 1.2rem; }
+.footer-col p { color: #A0A0A0; font-size: 0.9rem; line-height: 1.8; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { color: var(--orange-main); margin-bottom: 10px; cursor: pointer; font-size: 0.9rem; }
